@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Crash Auto Tracker — Key Login (Premium)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    :root{ --bg:#031426; --card:#071a2f; --muted:#9fb0c8; --accent:#00c2a8; --danger:#ff6b6b; }
+    *{ box-sizing:border-box; font-family:Inter,system-ui,Segoe UI,Roboto,"Noto Sans",sans-serif }
+    html,body{ height:100%; margin:0; background:linear-gradient(180deg,#00131f 0%, #031426 100%); color:#e7f6fb }
+    .centered{ min-height:100vh; display:flex; align-items:center; justify-content:center; padding:16px }
+    .login-card{ width:420px; max-width:100%; padding:22px; border-radius:14px; background:linear-gradient(180deg,rgba(255,255,255,0.05),transparent); box-shadow:0 18px 50px rgba(0,0,0,0.55) }
+    h1,h2,h3{ margin:0 0 8px }
+    h2{ font-size:20px }
+    .small{ font-size:13px; color:var(--muted) }
+    input{ width:100%; padding:12px; border-radius:10px; border:1px solid rgba(255,255,255,0.10); background:transparent; color:inherit; margin-top:8px }
+    button{ padding:10px 12px; border-radius:10px; border:0; background:var(--accent); color:#022; font-weight:700; cursor:pointer }
+    .btn-ghost{ background:transparent; border:1px solid rgba(255,255,255,0.14); color:var(--muted) }
+    .danger{ background:var(--danger); color:#230000 }
+    .app-wrap{ max-width:1100px; margin:18px auto; padding:18px; display:none }
+    .top{ display:flex; align-items:center; gap:12px }
+    .logo{ width:56px; height:56px; border-radius:12px; background:linear-gradient(135deg,var(--accent),#6dd3ff); display:flex; align-items:center; justify-content:center; color:#022; font-weight:800 }
+    .card{ background:linear-gradient(180deg,rgba(255,255,255,0.05),transparent); padding:12px; border-radius:12px; margin-top:12px }
+    .row{ display:flex; gap:12px; align-items:center; flex-wrap:wrap }
+    label{ color:var(--muted); font-size:13px }
+    table{ width:100%; border-collapse:collapse; margin-top:8px; font-size:13px }
+    th,td{ padding:8px; border-bottom:1px solid rgba(255,255,255,0.12); text-align:left }
+    .key-pill{ display:inline-block; padding:6px 8px; border-radius:8px; background:rgba(255,255,255,0.12); font-family:monospace; font-weight:700 }
+    .muted{ color:var(--muted); font-size:13px }
+    footer{ margin-top:18px; text-align:center; font-size:13px; color:var(--muted) }
+    a.link{ color:#9fe; text-decoration:none; font-weight:700 }
+    .si-note{ background:rgba(255,255,255,0.08); padding:12px; border-radius:10px; line-height:1.6 }
+    @media(max-width:900px){ .app-wrap{ padding:12px } .login-card{ width:100% } }
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN (key-only) -->
+  <div id="loginScreen" class="centered">
+    <div class="login-card">
+      <h2>Key-only Login</h2>
+      <div class="small">
+        Enter your unique key below. If you need a key, inbox:
+        <a href="https://t.me/NEVERXGAMBLE" target="_blank" class="link">https://t.me/NEVERXGAMBLE</a>
+      </div>
+      <input id="keyInput" type="text" placeholder="EX: Z5TJ-4KTD-R1X2" />
+      <button id="enterKeyBtn" style="width:100%; margin-top:10px">Enter Key</button>
+      <div id="loginMsg" class="small muted" style="margin-top:8px; min-height:18px"></div>
+
+      <!-- Sinhala note ONLY -->
+      <div class="si-note" style="margin-top:12px">
+        <strong>අවවාද / සටහන (සිංහලෙන්):</strong><br>
+        මේක වසරක පමණ අත්දැකීම් මත 888starz වල bet කිරීමට පහසු වීමට සාදා ගත් පරිගනක වැඩසටහනකි. මම වැඩිදියුණු කර මෙහි ලබා දීමට කටයුතු කලා. crash ගේම් එකේ ඇති එක් එක් pattern නිතර නිතර වෙනස් වෙනව. ඒ random numbers ඇල්ගොරිදම් එක අල්ලන්න කාටවත්ම බෑ. මෙහි 30%+ පමන යම් සාර්තක බාවයක් තිබෙනවා. <strong>[100%ක් සාර්තකනම් මන් මේක 1$ කට දෙනවද..]</strong> නමුත් මේක එක් එක් වෙලාවන් අනුව වෙනස් වීමට හැක. bet කරද්දි මේකෙන් යම් අවබෝධයක් ගන්න,මේකෙ විදියටම දාන්න එපා. ඊටපස්සෙ සල්ලි නැතිකරන් මැසේජ් දාන්නත් එපා. කැමති අය 1$ දීල ගන්න. <strong>සැ.යු. මෙය මගේ ගණිතමය සූත්‍රයකි</strong>
+        <a href="https://t.me/NEVERXGAMBLE" target="_blank" class="link">https://t.me/NEVERXGAMBLE</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN APP -->
+  <div id="app" class="app-wrap" aria-hidden="true">
+    <div class="top">
+      <div class="logo">P</div>
+      <div>
+        <h1 style="margin:0">Crash Auto Tracker — Premium</h1>
+        <div class="small">Signed in with key: <span id="activeKey" class="key-pill">—</span></div>
+      </div>
+      <div style="margin-left:auto" class="row">
+        <button id="adminBtn" class="btn-ghost">Admin</button>
+        <a href="https://t.me/NEVERXGAMBLE" target="_blank" class="small link">Inbox / Request Key</a>
+        <button id="logoutBtn" class="btn-ghost">Logout</button>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="card">
+      <div class="row" style="align-items:flex-start">
+        <div style="flex:1; min-width:240px">
+          <label>Multiplier (e.g., 1.23)</label>
+          <input id="multiplierInput" type="number" step="0.01" min="0.01" placeholder="e.g., 2.50" />
+        </div>
+        <div style="width:280px; min-width:260px">
+          <label>Config</label>
+          <div class="row">
+            <div class="small">Window:</div>
+            <input id="windowN" type="number" min="3" value="20" style="width:90px" />
+            <div class="small">Risk:</div>
+            <input id="risk" type="number" min="0" max="1" step="0.1" value="0.2" style="width:90px" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:12px">
+        <button id="recordBtn">Record + Predict</button>
+        <button id="addNoPredictBtn" style="background:#2b6ef6;color:white">Record (no predict)</button>
+        <button id="clearBtn" class="danger">Clear data</button>
+      </div>
+
+      <div id="lastSuggestion" class="muted" style="margin-top:12px">No prediction yet.</div>
+      <div style="margin-top:12px"><canvas id="chart" height="120"></canvas></div>
+    </div>
+
+    <!-- History -->
+    <div class="card" style="margin-top:12px">
+      <h3 style="margin:0 0 8px">History</h3>
+      <table id="historyTable">
+        <thead><tr><th>#</th><th>Time</th><th>Multiplier</th><th>Prediction</th><th>Suggestion</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <!-- Admin (hidden until password ok) -->
+    <div id="adminCard" class="card" style="margin-top:12px; display:none">
+      <h3 style="margin:0 0 8px">Available Keys (Admin view)</h3>
+      <div id="keysArea" class="muted"></div>
+      <div style="margin-top:8px" class="small muted">Seeded demo keys. You can export or copy.</div>
+      <div style="margin-top:8px" class="row">
+        <button id="btnExportKeys" class="small" style="background:#ef8050">Export Keys</button>
+        <button id="btnCopyKeys" class="small">Copy Keys</button>
+      </div>
+    </div>
+
+    <!-- Sinhala notes (as requested) -->
+    <div class="card" style="margin-top:12px">
+      <h3 style="margin:0 0 8px">අවවාද / Notes (සිංහලෙන්)</h3>
+      <div class="si-note">මේක වසරක පමණ අත්දැකීම් මත 888starz වල bet කිරීමට පහසු වීමට සාදා ගත් පරිගනක වැඩසටහනකි. මම වැඩිදියුණු කර මෙහි ලබා දීමට කටයුතු කලා. crash ගේම් එකේ ඇති එක් එක් pattern නිතර නිතර වෙනස් වෙනව. ඒ random numbers ඇල්ගොරිදම් එක අල්ලන්න කාටවත්ම බෑ. මෙහි 30%+ පමන යම් සාර්තක බාවයක් තිබෙනවා. <strong>[100%ක් සාර්තකනම් මන් මේක 1$ කට දෙනවද..]</strong> නමුත් මේක එක් එක් වෙලාවන් අනුව වෙනස් වීමට හැක. bet කරද්දි මේකෙන් යම් අවබෝධයක් ගන්න,මේකෙ විදියටම දාන්න එපා. ඊටපස්සෙ සල්ලි නැතිකරන් මැසේජ් දාන්නත් එපා. <strong>සැ.යු. මෙය මගේ ගණිතමය සූත්‍රයකි</strong>
+      <a href="https://t.me/NEVERXGAMBLE" target="_blank" class="link">t.me/NEVERXGAMBLE</a>
+      </div>
+    </div>
+
+    <footer>
+      Prototype • Local-only by default • Use responsibly • contact:
+      <a href="https://t.me/NEVERXGAMBLE" target="_blank" class="link">t.me/NEVERXGAMBLE</a>
+    </footer>
+  </div>
+
+<script>
+/* ---------- Config ---------- */
+const STORAGE_KEYS = 'premium_crash_keys_v1';
+const STORAGE_DATA = 'crash_tracker_data_v1';
+const ADMIN_PASSWORD = 'THAVIZZZ'; 
+
+function nowTS(){ return new Date().toISOString(); }
+
+/* ---------- Seed 10 keys (demo) ---------- */
+function seedKeysIfNeeded(){
+  const raw = localStorage.getItem(STORAGE_KEYS);
+  if(raw) return JSON.parse(raw);
+  const keys = [
+    {k: 'Q7NZ-4KPD-R1XM', used:false, assignedTo:null, created: nowTS()},
+    {k: 'B2FH-9VLT-M6SC', used:false, assignedTo:null, created: nowTS()},
+    {k: 'X8RD-3QWY-P5ZN', used:false, assignedTo:null, created: nowTS()},
+    {k: 'M4GK-1TJV-H8PL', used:false, assignedTo:null, created: nowTS()},
+    {k: 'R9YC-6SFB-N2QD', used:false, assignedTo:null, created: nowTS()},
+    {k: 'T5LX-7PWR-K3ZM', used:false, assignedTo:null, created: nowTS()},
+    {k: 'H1VN-8QKC-J4SB', used:false, assignedTo:null, created: nowTS()},
+    {k: 'C3PM-2ZRD-L7XF', used:false, assignedTo:null, created: nowTS()},
+    {k: 'S6QJ-5YHT-B9LK', used:false, assignedTo:null, created: nowTS()},
+    {k: 'V8WB-4NMG-P2XR', used:false, assignedTo:null, created: nowTS()},
+  ];
+  localStorage.setItem(STORAGE_KEYS, JSON.stringify(keys));
+  return keys;
+}
+let keys = seedKeysIfNeeded();
+try{ keys = JSON.parse(localStorage.getItem(STORAGE_KEYS) || '[]'); }catch(e){ keys = seedKeysIfNeeded(); }
+
+/* ---------- Data store ---------- */
+let data = (function(){ try{ const r = localStorage.getItem(STORAGE_DATA); return r?JSON.parse(r):[] }catch(e){return[]} })();
+function saveData(){ localStorage.setItem(STORAGE_DATA, JSON.stringify(data)); }
+
+/* ---------- UI refs ---------- */
+const loginScreen = document.getElementById('loginScreen');
+const app = document.getElementById('app');
+const keyInput = document.getElementById('keyInput');
+const enterKeyBtn = document.getElementById('enterKeyBtn');
+const loginMsg = document.getElementById('loginMsg');
+const activeKeyEl = document.getElementById('activeKey');
+const keysArea = document.getElementById('keysArea');
+const adminCard = document.getElementById('adminCard');
+const adminBtn = document.getElementById('adminBtn');
+
+/* ---------- Login (English-only messages) ---------- */
+let activeKey = null;
+function showAppWithKey(k){
+  activeKey = k;
+  activeKeyEl.textContent = k;
+  loginScreen.style.display = 'none';
+  app.style.display = 'block';
+  app.setAttribute('aria-hidden','false');
+  renderAll();
+}
+function showLogin(){
+  activeKey = null;
+  app.style.display = 'none';
+  app.setAttribute('aria-hidden','true');
+  loginScreen.style.display = 'flex';
+  keyInput.value = '';
+  loginMsg.textContent = '';
+  hideAdmin();
+}
+enterKeyBtn.addEventListener('click', ()=>{
+  const val = keyInput.value.trim().toUpperCase();
+  if(!val){ loginMsg.textContent = 'Please enter a key.'; return; }
+  const kobj = keys.find(x=>x.k === val);
+  if(!kobj){ loginMsg.textContent = 'Invalid key — not found in the pool.'; return; }
+  loginMsg.textContent = 'Key valid. Logging in...';
+  setTimeout(()=> showAppWithKey(kobj.k), 250);
+});
+keyInput.addEventListener('keydown', (e)=>{ if(e.key==='Enter') enterKeyBtn.click(); });
+document.getElementById('logoutBtn').addEventListener('click', ()=>{ if(confirm('Logout?')) showLogin(); });
+
+/* ---------- Admin protection ---------- */
+function hideAdmin(){ adminCard.style.display = 'none'; }
+function askAdmin(){
+  const entered = prompt('Enter admin password to view keys:');
+  if(entered === ADMIN_PASSWORD){
+    adminCard.style.display = 'block';
+    renderKeys();
+  }else if(entered !== null){
+    alert('Wrong admin password.');
+  }
+}
+adminBtn.addEventListener('click', askAdmin);
+
+/* ---------- Export / Copy keys ---------- */
+document.getElementById('btnExportKeys').addEventListener('click', ()=>{
+  if(!keys || keys.length===0){ alert('No keys to export'); return; }
+  const rows=[['key','used','assignedTo','created']];
+  keys.forEach(k=> rows.push([k.k, k.used?1:0, k.assignedTo||'', k.created||'']));
+  const csv = rows.map(r=> r.map(c=>`"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');
+  const blob = new Blob([csv], {type:'text/csv'}); const url = URL.createObjectURL(blob);
+  const a=document.createElement('a'); a.href=url; a.download='keys.csv'; a.click(); URL.revokeObjectURL(url);
+});
+document.getElementById('btnCopyKeys').addEventListener('click', ()=>{
+  if(!keys || keys.length===0){ alert('No keys to copy'); return; }
+  const txt = keys.map(k=>k.k).join('\n');
+  navigator.clipboard.writeText(txt).then(()=> alert('Keys copied to clipboard'));
+});
+
+/* ---------- Prediction logic (fixed) ---------- */
+function addEntry(multiplier, doPredict=true){
+  const m = Number(multiplier);
+  if(!isFinite(m) || m<=0) return false;
+  const entry = { t: new Date().toISOString(), m: Number(m.toFixed(2)), pred: null, suggestion: null };
+  data.unshift(entry);
+  if(doPredict){
+    const {pred, suggestion} = generatePredictionForEntry();
+    entry.pred = pred; entry.suggestion = suggestion;
+  }
+  saveData();
+  renderAll(); // ensures table/chart/suggestion update immediately
+  return true;
+}
+function generatePredictionForEntry(){
+  const N = Math.max(3, parseInt(document.getElementById('windowN').value) || 20);
+  const risk = Math.max(0.01, Math.min(1, Number(document.getElementById('risk').value) || 0.2));
+  const history = data.slice(0, N).map(x=>x.m).reverse(); // oldest -> newest
+  if(history.length===0) return {pred: 1.0, suggestion: 'No history'};
+  // EWMA + avg blend
+  let alpha = 0.25, ewma = history[0];
+  for(let i=1;i<history.length;i++) ewma = alpha*history[i] + (1-alpha)*ewma;
+  const avg = history.reduce((a,b)=>a+b,0)/history.length;
+  const p_gt2 = history.filter(x=>x>=2.0).length / history.length;
+  let pred = 0.6*ewma + 0.4*avg;
+  if(p_gt2 > 0.4) pred *= (1 + (p_gt2-0.4)*0.6);
+  pred = Math.max(1.01, Number(pred.toFixed(2)));
+  let suggestion = '';
+  if(pred >= 3.0){ suggestion = `Recommend BET (aggressive). Cash out at ${pred}x. Units: ${calcUnits(risk,'aggressive')}`; }
+  else if(pred >= 2.0){ suggestion = `Recommend BET. Cash out at ${pred}x. Units: ${calcUnits(risk,'normal')}`; }
+  else if(pred >= 1.5){ suggestion = `Micro bet possible. Cash out at ${pred}x. Units: ${calcUnits(risk,'micro')}`; }
+  else { suggestion = `Skip or very small bet. Pred ${pred}x`; }
+  return {pred, suggestion};
+}
+function calcUnits(risk, mode){
+  const r = Math.max(0.01, Math.min(1, Number(document.getElementById('risk').value)||0.2));
+  if(mode==='aggressive') return Math.max(1, Math.round(3 * r * 10)/10);
+  if(mode==='normal') return Math.max(1, Math.round(1.5 * r * 10)/10);
+  return Math.max(0.1, Math.round(0.5 * r * 10)/10);
+}
+
+/* ---------- Renderers ---------- */
+const ctx = document.getElementById('chart').getContext('2d');
+let chart = null;
+
+function renderTable(){
+  const tbody = document.querySelector('#historyTable tbody');
+  tbody.innerHTML = '';
+  data.forEach((row, idx)=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${idx+1}</td>
+                    <td class="muted">${(new Date(row.t)).toLocaleString()}</td>
+                    <td>${row.m.toFixed(2)}x</td>
+                    <td>${row.pred?row.pred+'x':''}</td>
+                    <td class="muted">${row.suggestion||''}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+function renderStats(){
+  const el = document.getElementById('lastSuggestion');
+  if(data.length===0){ el.innerHTML = '<div class="muted">No prediction yet.</div>'; return; }
+  const last = data[0];
+  if(!last.pred){ el.innerHTML = `<div class="muted">Last saved: ${last.m}x — no prediction</div>`; return; }
+  el.innerHTML = `<div><strong>Last:</strong> ${last.m}x &nbsp; <strong>Pred:</strong> ${last.pred}x</div>
+                  <div class="muted" style="margin-top:6px">${last.suggestion}</div>`;
+}
+
+function renderChart(){
+  const labels = data.slice(0,200).map(x=>new Date(x.t).toLocaleTimeString()).reverse();
+  const values = data.slice(0,200).map(x=>x.m).reverse();
+  if(!chart){
+    chart = new Chart(ctx, {
+      type: 'line',
+      data: { labels, datasets: [{ label:'Multiplier', data: values, tension:0.2, borderWidth:2, fill:false }]},
+      options:{ plugins:{legend:{display:false}},
+        scales:{ x:{display:false}, y:{beginAtZero:true, suggestedMax: Math.max(3, Math.max(...values||[3]))}}}
+    });
+  }else{
+    chart.data.labels = labels;
+    chart.data.datasets[0].data = values;
+    chart.options.scales.y.suggestedMax = Math.max(3, Math.max(...values||[3]));
+    chart.update();
+  }
+}
+
+function renderKeys(){
+  if(!keys || keys.length===0){ keysArea.innerHTML = '<div class="muted">No keys</div>'; return; }
+  keysArea.innerHTML = keys.map(k=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0">
+    <div><span class="key-pill">${k.k}</span> <span class="muted" style="margin-left:8px">${k.used?'<strong style="color:#ffd24d">USED</strong>':'available'}</span></div>
+    <div style="display:flex;gap:8px"><button class="copyk" data-k="${k.k}">Copy</button></div>
+  </div>`).join('');
+  keysArea.querySelectorAll('button.copyk').forEach(b=>{
+    b.addEventListener('click', (e)=>{ navigator.clipboard.writeText(e.currentTarget.dataset.k).then(()=> alert('Key copied')); });
+  });
+}
+
+function renderAll(){
+  renderTable();
+  renderStats();
+  renderChart();
+  // admin keys list will render only when admin unlocks
+}
+
+/* ---------- Buttons ---------- */
+document.getElementById('recordBtn').addEventListener('click', ()=>{
+  const v = document.getElementById('multiplierInput').value;
+  if(!v){ alert('Enter multiplier'); return; }
+  if(addEntry(Number(v), true)){ document.getElementById('multiplierInput').value=''; } else alert('Invalid multiplier');
+});
+
+document.getElementById('addNoPredictBtn').addEventListener('click', ()=>{
+  const v = document.getElementById('multiplierInput').value;
+  if(!v){ alert('Enter multiplier'); return; }
+  if(addEntry(Number(v), false)){ document.getElementById('multiplierInput').value=''; } else alert('Invalid multiplier');
+});
+
+document.getElementById('clearBtn').addEventListener('click', ()=>{
+  if(!confirm('Clear all stored tracker data?')) return;
+  data = []; saveData(); renderAll();
+});
+
+/* ---------- Init ---------- */
+renderAll();
+</script>
+</body>
+</html>
